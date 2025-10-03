@@ -8,76 +8,107 @@ const HeroSection = () => {
     query: "(max-width: 768px)",
   });
 
+  const isBase = useMediaQuery({
+    query: "(max-width: 639px)",
+  });
+
   const isTablet = useMediaQuery({
     query: "(max-width: 1024px)",
   });
 
   useGSAP(() => {
-    const titleSplit = SplitText.create(".hero-title", {
-      type: "chars",
-    });
+    // Responsive GSAP: ClipPath animation for .hero-text-scroll on ALL devices
+    const tl = gsap.timeline({ delay: 1 });
+    if (window.innerWidth >= 1024) {
+      const titleSplit = SplitText.create(".hero-title", { type: "chars" });
 
-    const tl = gsap.timeline({
-      delay: 1,
-    });
+      tl.to(".hero-content", { opacity: 1, y: 0, ease: "power1.inOut" })
+        .to(
+          ".hero-text-scroll",
+          {
+            duration: 1,
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            ease: "circ.out",
+          },
+          "-=0.5"
+        )
+        .from(
+          titleSplit.chars,
+          {
+            yPercent: 200,
+            stagger: 0.02,
+            ease: "power2.out",
+          },
+          "-=0.5"
+        );
 
-    tl.to(".hero-content", {
-      opacity: 1,
-      y: 0,
-      ease: "power1.inOut",
-    })
-      .to(
+      
+      const heroTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".hero-container",
+          start: "1% top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+      heroTl.to(".hero-container", {
+        rotate: 7,
+        scale: 0.9,
+        yPercent: 40,
+        ease: "power1.inOut",
+      });
+    } else if (window.innerWidth >= 768) {
+      
+      tl.to(".hero-content", {
+        opacity: 1,
+        y: 0,
+        ease: "power1.inOut",
+        duration: 0.8,
+      })
+        .to(
+          ".hero-text-scroll",
+          {
+            duration: 0.8, 
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            ease: "circ.out",
+          },
+          "-=0.3"
+        )
+        .from(
+          ".hero-title",
+          {
+            y: 50,
+            opacity: 0,
+            ease: "power2.out",
+            duration: 0.6,
+          },
+          "-=0.6"
+        ); 
+    } else {
+      // Mobile/Base: Basic clipPath animation only (lightweight)
+      tl.to(".hero-content", {
+        opacity: 1,
+        y: -10, 
+        ease: "power1.inOut",
+        duration: 0.6,
+      }).to(
         ".hero-text-scroll",
         {
-          duration: 1,
+          duration: 0.6, 
           clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-          ease: "circ.out",
+          ease: "power2.out", 
         },
-        "-=0.5"
-      )
-      .from(
-        titleSplit.chars,
-        {
-          yPercent: 200,
-          stagger: 0.02,
-          ease: "power2.out",
-        },
-        "-=0.5"
+        "-=0.2"
       );
-
-    const heroTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".hero-container",
-        start: "1% top",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
-    heroTl.to(".hero-container", {
-      rotate: 7,
-      scale: 0.9,
-      yPercent: 40,
-      ease: "power1.inOut",
-    });
+    }
   });
 
   return (
     <section className="bg-main-bg">
       <div className="hero-container">
-        {isTablet ? (
-          <>
-            {isMobile && (
-              <img
-                src="/images/hero-bg.png"
-                className="absolute bottom-40 size-full object-cover"
-              />
-            )}
-            <img
-              src="/images/hero-img.png"
-              className="absolute bottom-0 left-1/2 -translate-x-1/2 object-auto"
-            />
-          </>
-        ) : (
+        {/* Responsive background: Video for desktop, hero-bg for tablet, hero-img for mobile */}
+        {!isTablet ? (
+          // LG: Video background
           <video
             src="/videos/hero-bg.mp4"
             autoPlay
@@ -85,8 +116,22 @@ const HeroSection = () => {
             playsInline
             className="absolute inset-0 w-full h-full object-cover"
           />
+        ) : isMobile ? (
+          // SM: Hero-img as background
+          <img
+            src="/images/hero-bg.png"
+            className="absolute inset-0 w-full h-full object-contain"
+            alt="Hero background"
+          />
+        ) : (
+          // MD: Hero-bg as background
+          <img
+            src="/images/hero-bg.png"
+            className="absolute inset-0 w-full h-full object-cover"
+            alt="Hero background"
+          />
         )}
-        <div className="hero-content opacity-0">
+        <div className="hero-content opacity-0 relative">
           <div className="overflow-hidden">
             <h1 className="hero-title">Freaking Delicious</h1>
           </div>
@@ -97,7 +142,7 @@ const HeroSection = () => {
             className="hero-text-scroll"
           >
             <div className="hero-subtitle">
-              <h1>Protein + Caffeine </h1>
+              <h1>Protein + Caffeine </h1> 
             </div>
           </div>
 
@@ -119,6 +164,14 @@ const HeroSection = () => {
             <div className="drip-12"></div>
             <div className="drip-13"></div>
           </div>
+          {/*adding a photo in mode : base mode  */}
+          {isBase && (
+            <img
+              src="/images/hero-img.png"
+              className="mt-10 h-24 w-1/2 object-contain rounded-sm"
+              alt="Hero additional image"
+            />
+          )}
         </div>
       </div>
     </section>

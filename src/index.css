@@ -22,6 +22,13 @@
   --font-paragraph: "ProximaNova, sans-serif";
 }
 
+/* Global box-sizing fix */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html,
 body {
   margin: 0;
@@ -61,28 +68,28 @@ body::-webkit-scrollbar {
   }
 
   .hero-container {
-    @apply relative bg-milk w-screen h-dvh overflow-hidden;
+    @apply relative bg-milk w-screen xl:h-dvh lg:h-dvh md:h-dvh sm:h-dvh overflow-hidden h-[135vh];
 
     .hero-content {
-      @apply relative z-10 w-full h-full flex flex-col xl:justify-center items-center translate-y-10 xl:pt-0 md:pt-32 pt-24;
+      @apply relative z-10 w-full h-full flex flex-col xl:justify-center lg:justify-center md:justify-center sm:justify-center items-center translate-y-10 xl:pt-0 lg:pt-0 md:mt-5  sm:mt-2 pt-10 mt-10;
 
       .hero-title {
-        @apply text-dark-brown md:text-[6.7rem] text-[3.3rem] font-bold uppercase leading-[9vw] tracking-[-.35vw] xl:mb-0 mb-5;
+        @apply text-dark-brown xl:text-[6.7rem] lg:text-[6.7rem] md:text-[6rem] sm:text-[5.5rem] text-[3rem] font-bold uppercase xl:leading-[9vw] lg:leading-[9vw] md:leading-[9vw] sm:leading-[9vw] leading-[9vw] tracking-[-.35vw] xl:mb-0 lg:mb-0 md:mb-7 sm:mb-4 mb-3;
       }
 
       .hero-text-scroll {
-        @apply rotate-[-3deg] mb-8 border-[.5vw] border-milk;
+        @apply rotate-[-3deg] xl:mb-8 lg:mb-8 md:mb-8 sm:mb-8 sm:mt-2 mb-3 xl:border-[.5vw] lg:border-[.5vw] md:border-[.5vw] sm:border-[.5vw] border-[.5vw] border-milk sm:rotate-[-2deg];
 
         .hero-subtitle {
-          @apply bg-mid-brown;
+          @apply bg-mid-brown md:p-5 md:px-1 sm:px-2 sm:py-5 py-2 px-1;
         }
 
         h1 {
-          @apply uppercase md:text-[6.7rem] text-[3.3rem] font-bold text-[#fce1cd] leading-[9vw] tracking-[-.35vw] xl:px-[1.2vw] px-3 xl:pb-[1vw] pb-5 xl:py-1 py-3;
+          @apply uppercase xl:text-[6.7rem] lg:text-[6.7rem] md:text-[6rem] sm:text-[5.3rem] text-[3rem] font-bold text-[#fce1cd] xl:leading-[9vw] lg:leading-[9vw] md:leading-[9vw] sm:leading-[9vw] leading-[9vw] tracking-[-.35vw] xl:px-[1.2vw] lg:px-[1.2vw] md:px-[1.2vw] sm:px-[1.2vw] px-[1.2vw] xl:pb-[1vw] lg:pb-[1vw] md:pb-[2vw] sm:pb-[2vw] pb-[1vw] xl:py-1 lg:py-1 md:py-1 sm:py-1 py-1;
         }
       }
       h2 {
-        @apply font-paragraph text-dark-brown text-center md:max-w-lg max-w-sm px-5 md:text-sm leading-[115%] mt-3;
+        @apply font-paragraph text-dark-brown text-center xl:max-w-4xl lg:max-w-4xl md:max-w-4xl sm:max-w-4xl max-w-4xl xl:px-5 lg:px-5 md:px-5 sm:px-5 px-5 xl:text-base lg:text-base md:text-sm sm:text-sm text-sm leading-[115%] xl:mt-6 lg:mt-6 md:mt-1 sm:mt-4 mt-6 sm:mb-4;
       }
 
       /* .hero-button {
@@ -90,7 +97,7 @@ body::-webkit-scrollbar {
       } */
       /* Existing hero-button styles */
       .hero-button {
-        @apply md:mt-12 mt-10 text-dark-brown bg-light-brown uppercase font-bold text-sm rounded-full p-4 md:px-13 px-10 cursor-pointer;
+        @apply xl:mt-8 lg:mt-10 md:mt-6 sm:mt-3 mt-4 text-dark-brown bg-light-brown uppercase font-bold xl:text-base lg:text-base md:text-base sm:text-base text-base rounded-full xl:p-5 lg:p-5 md:p-3 sm:p-3 p-3 xl:px-14 lg:px-14 md:px-14 sm:px-14 px-8 cursor-pointer min-h-12 xl:mb-2;
         position: relative;
         display: inline-block;
         overflow: visible;
@@ -113,7 +120,7 @@ body::-webkit-scrollbar {
       .drip-14,
       .drip-15 {
         position: absolute;
-        width: 10px;
+        width: 8px;
         height: 0px;
         border-radius: 0 0 70px 70px;
         background: #e3a458;
@@ -166,40 +173,88 @@ body::-webkit-scrollbar {
         transition-duration: 0.9s;
       }
 
-      /* Hover effects for drips */
+      /* Responsive hover effects for drips */
 
       .hero-button:hover .drip-3 {
-        height: 10px;
+        height: 8px;
       }
       .hero-button:hover .drip-4 {
-        height: 15px;
+        height: 12px;
       }
       .hero-button:hover .drip-5 {
         height: 4px;
       }
       .hero-button:hover .drip-6 {
-        height: 24px;
+        height: 18px;
       }
       .hero-button:hover .drip-7 {
-        height: 9px;
+        height: 7px;
       }
       .hero-button:hover .drip-8 {
-        height: 19px;
+        height: 15px;
       }
       .hero-button:hover .drip-9 {
-        height: 14px;
+        height: 11px;
       }
       .hero-button:hover .drip-10 {
-        height: 20px;
+        height: 15px;
       }
       .hero-button:hover .drip-11 {
         height: 4px;
       }
       .hero-button:hover .drip-12 {
-        height: 10px;
+        height: 8px;
       }
       .hero-button:hover .drip-13 {
-        height: 15px;
+        height: 12px;
+      }
+
+      /* Mobile touch-friendly drip effects */
+      @media (max-width: 768px) {
+        .hero-button:active .drip-3,
+        .hero-button:hover .drip-3 {
+          height: 8px;
+        }
+        .hero-button:active .drip-4,
+        .hero-button:hover .drip-4 {
+          height: 12px;
+        }
+        .hero-button:active .drip-5,
+        .hero-button:hover .drip-5 {
+          height: 4px;
+        }
+        .hero-button:active .drip-6,
+        .hero-button:hover .drip-6 {
+          height: 18px;
+        }
+        .hero-button:active .drip-7,
+        .hero-button:hover .drip-7 {
+          height: 7px;
+        }
+        .hero-button:active .drip-8,
+        .hero-button:hover .drip-8 {
+          height: 15px;
+        }
+        .hero-button:active .drip-9,
+        .hero-button:hover .drip-9 {
+          height: 11px;
+        }
+        .hero-button:active .drip-10,
+        .hero-button:hover .drip-10 {
+          height: 15px;
+        }
+        .hero-button:active .drip-11,
+        .hero-button:hover .drip-11 {
+          height: 4px;
+        }
+        .hero-button:active .drip-12,
+        .hero-button:hover .drip-12 {
+          height: 8px;
+        }
+        .hero-button:active .drip-13,
+        .hero-button:hover .drip-13 {
+          height: 12px;
+        }
       }
     }
   }
@@ -392,5 +447,61 @@ body::-webkit-scrollbar {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Hero Section Responsive Media Queries */
+@media (max-width: 1023px) {
+  /* Hide video background on tablet and mobile */
+  .hero-container video {
+    display: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Mobile-specific hero adjustments */
+  .hero-container {
+    overflow: hidden;
+  }
+
+  /* Mobile text adjustments */
+  .hero-title,
+  .hero-text-scroll h1 {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  /* Disable complex hover effects on mobile */
+  .hero-button:hover {
+    transform: none;
+  }
+
+  /* Ensure images don't overflow */
+  .hero-container img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Reduce complex animations on tablet */
+  .drip-1,
+  .drip-2,
+  .drip-3,
+  .drip-4,
+  .drip-5,
+  .drip-6,
+  .drip-7,
+  .drip-8,
+  .drip-9,
+  .drip-10,
+  .drip-11,
+  .drip-12,
+  .drip-13,
+  .drip-14,
+  .drip-15 {
+    transition-duration: 0.3s;
   }
 }
