@@ -260,17 +260,20 @@ body::-webkit-scrollbar {
   }
 
   .message-content {
-    @apply bg-[#7f3b2d] text-milk min-h-dvh overflow-hidden flex justify-center items-center relative z-20;
+    @apply bg-[#7f3b2d] text-milk min-h-dvh xl:overflow-hidden lg:overflow-hidden overflow-visible flex justify-center items-center relative z-20 px-2 sm:px-4;
 
     .msg-wrapper {
-      @apply xl:text-[7rem] md:text-8xl text-5xl font-bold uppercase leading-[9vw] tracking-[-.35vw] flex flex-col justify-center items-center md:gap-24 gap-14;
+      /* Responsive: Scale gap for mobile stacking */
+      @apply text-[clamp(3rem,8vw,7rem)] font-bold uppercase leading-[9vw] tracking-[-.35vw] flex flex-col justify-center items-center gap-8 sm:gap-12 md:gap-10 lg:gap-18 xl:gap-24;
 
       h1:first-of-type {
-        @apply xl:max-w-4xl md:max-w-2xl max-w-xs text-center  text-[#faeade10];
+        /* Responsive: Scale max-width for better mobile readability */
+        @apply max-w-sm sm:max-w-md md:max-w-2xl xl:max-w-4xl text-center text-[#faeade10] md:text-[4.8rem] lg:text-[6.7rem] xl:text-[6.7rem] text-[3.2rem];
       }
 
       h1:last-of-type {
-        @apply xl:max-w-7xl md:max-w-4xl max-w-xs text-center  text-[#faeade10];
+        /* Responsive: Scale max-width for better mobile readability */
+        @apply max-w-sm sm:max-w-md md:max-w-2xl xl:max-w-4xl text-center text-[#faeade10] md:text-[4.6rem] lg:text-[6.7rem] xl:text-[6.7rem] text-[3rem];
       }
     }
 
@@ -284,7 +287,11 @@ body::-webkit-scrollbar {
     }
 
     .msg-text-scroll {
-      @apply rotate-[4deg] xl:translate-y-5 -translate-y-5 absolute z-10 border-[.6vw] border-[#7f3b2d];
+      /* Responsive: Scale translate-y and border for better mobile positioning */
+      @apply rotate-[3deg] sm:rotate-[4deg] md:rotate-[4.2deg] -translate-y-7 sm:-translate-y-6 md:-translate-y-7 lg:translate-y-5 xl:translate-y-7 absolute z-10;
+      border-width: clamp(0.3vw, 0.5rem, 0.6vw); /* top right&left bottom*/
+      border-color: #7f3b2d;
+      border-style: solid;
     }
   }
 
@@ -503,5 +510,31 @@ body::-webkit-scrollbar {
   .drip-14,
   .drip-15 {
     transition-duration: 0.3s;
+  }
+}
+
+/* Message Section Mobile Optimizations */
+@media (max-width: 639px) {
+  /* Base mobile tweaks for message content */
+  .message-content {
+    /* Ensure proper mobile spacing */
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .msg-wrapper {
+    /* Improve mobile text readability */
+    line-height: 1.1;
+  }
+
+  .msg-text-scroll {
+    /* Reduce rotation for better mobile readability */
+    transform: rotate(1deg) translateY(-0.5rem);
+  }
+
+  /* Ensure text doesn't overflow on very small screens */
+  .message-content h1 {
+    word-wrap: break-word;
+    hyphens: auto;
   }
 }

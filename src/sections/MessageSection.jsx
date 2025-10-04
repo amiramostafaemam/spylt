@@ -4,6 +4,7 @@ import { SplitText } from "gsap/all";
 
 const MessageSection = () => {
   useGSAP(() => {
+    // Create text splits - keep original behavior for full GSAP effects
     const firstMsgSplit = SplitText.create(".first-message", {
       type: "words",
     });
@@ -14,6 +15,8 @@ const MessageSection = () => {
       type: "words,lines",
       linesClass: "paragraph-line",
     });
+
+    // First message animation - original scroll effect
     gsap.to(firstMsgSplit.words, {
       color: "#faeade",
       ease: "power1.in",
@@ -25,6 +28,8 @@ const MessageSection = () => {
         scrub: true,
       },
     });
+
+    // Second message animation - original scroll effect
     gsap.to(secondMsgSplit.words, {
       color: "#faeade",
       ease: "power1.in",
@@ -37,6 +42,7 @@ const MessageSection = () => {
       },
     });
 
+    // Message scroll reveal animation - original effect
     const revealTL = gsap.timeline({
       delay: 1,
       scrollTrigger: {
@@ -49,21 +55,22 @@ const MessageSection = () => {
       clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
       ease: "circ.inOut",
     });
+
+    // Paragraph animation - starts in middle of last h1 scrubbing
     const paragraphTL = gsap.timeline({
       scrollTrigger: {
-        trigger: ".message-content p",
-        start: "top 80%",
-        // end: "bottom center",
+        trigger: ".second-message",
+        start: "center center", // Start when second message is at center
+        end: "bottom 20%", // End when second message is at bottom 20%
         scrub: true,
-        // markers: true,
       },
     });
     paragraphTL.from(paragraphSplit.words, {
       yPercent: 200,
       rotate: 0.5,
       ease: "power1.inOut",
-      duration: 1,
-      stagger: 0.01,
+      duration: 1.5,
+      stagger: 0.005,
     });
   });
 
@@ -73,29 +80,30 @@ const MessageSection = () => {
         <div className="w-full h-full">
           <div className="msg-wrapper">
             <h1 className="first-message">
-              Stir up your
-              <br /> fearless past and
+              Stir up your <br /> fearless past and
             </h1>
             <div
               style={{
                 clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)",
               }}
-              className="msg-text-scroll"
+              className="msg-text-scroll sm:mt-15 md:mt-0 lg:mb-27 xl:mt-25 mt-7 "
             >
-              <div className="bg-light-brown md:pb-4 px-2 ">
-                <h2 className="text-red-brown">Fuel Up</h2>
+              <div className="bg-light-brown sm:py-2  md:py-3 px-2 lg:px-6 xl:py-5 xl:px-6 lg:py-5 py-2">
+                <h2 className="text-red-brown sm:text-[3.5rem] md:text-[4.4rem] lg:text-[6rem] xl:text-[6.7rem] text-[2.7rem]">
+                  Fuel Up
+                </h2>
               </div>
             </div>
             <h1 className="second-message">
               your future with every gulp of Perfect Protein
             </h1>
           </div>
-          <div className="flex-center md:mt-20 mt-10">
-            <div className="max-w-md px-10 flex-center overflow-hidden ">
+          <div className="flex-center  xl:mt-15 mt-10">
+            <div className="max-w-md px-10 flex-center overflow-hidden">
               <p>
-                Rev up your rebel spirit and feed the adventure of <br /> life
-                with SPYLT, where you’re one chug away from <br /> epic
-                nostalgia and fearless fun.
+                Rev up your rebel spirit and feed the adventure of life with
+                SPYLT, where you’re one chug away from epic nostalgia and
+                fearless fun.
               </p>
             </div>
           </div>

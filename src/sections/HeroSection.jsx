@@ -42,7 +42,7 @@ const HeroSection = () => {
           "-=0.5"
         );
 
-      
+      // Desktop-only scroll trigger for rotation/scale effect
       const heroTl = gsap.timeline({
         scrollTrigger: {
           trigger: ".hero-container",
