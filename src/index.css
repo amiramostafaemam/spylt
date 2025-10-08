@@ -68,7 +68,7 @@ body::-webkit-scrollbar {
   }
 
   .hero-container {
-    @apply relative bg-milk w-screen xl:h-dvh lg:h-dvh md:h-dvh sm:h-dvh overflow-hidden h-[135vh];
+    @apply relative bg-milk w-screen overflow-hidden h-dvh;
 
     .hero-content {
       @apply relative z-10 w-full h-full flex flex-col xl:justify-center lg:justify-center md:justify-center sm:justify-center items-center translate-y-10 xl:pt-0 lg:pt-0 md:mt-5  sm:mt-2 pt-10 mt-10;
@@ -288,7 +288,7 @@ body::-webkit-scrollbar {
 
     .msg-text-scroll {
       /* Responsive: Scale translate-y and border for better mobile positioning */
-      @apply rotate-[3deg] sm:rotate-[4deg] md:rotate-[4.2deg] -translate-y-7 sm:-translate-y-6 md:-translate-y-7 lg:translate-y-5 xl:translate-y-7 absolute z-10;
+      @apply rotate-[2.5deg] sm:rotate-[3deg] md:rotate-[4deg] -translate-y-7 sm:-translate-y-6 md:-translate-y-7 lg:translate-y-5 xl:translate-y-7 absolute z-10;
       border-width: clamp(0.3vw, 0.5rem, 0.6vw); /* top right&left bottom*/
       border-color: #7f3b2d;
       border-style: solid;
@@ -296,10 +296,10 @@ body::-webkit-scrollbar {
   }
 
   .flavor-section {
-    @apply min-h-dvh bg-milk;
+    @apply min-h-dvh bg-milk sm:mt-12;
 
     .flavor-text-scroll {
-      @apply rotate-[-3deg] md:translate-y-5 border-[.6vw] border-milk absolute z-10;
+      @apply rotate-[-3deg] md:translate-y-5 xl:translate-y-0 lg:translate-y-0 border-[clamp(0.3vw,0.4rem,0.6vw)] border-milk absolute z-10;
     }
 
     .first-text-split h1 {
@@ -311,17 +311,17 @@ body::-webkit-scrollbar {
     }
 
     .slider-wrapper {
-      @apply lg:h-dvh min-h-dvh md:min-h-fit w-full mt-0 md:mt-20 xl:mt-0;
+      @apply lg:h-dvh min-h-dvh md:min-h-fit w-full mt-10 md:mt-10 xl:mt-0;
 
       .flavors {
-        @apply h-full w-full flex md:flex-row flex-col items-center xl:gap-72 lg:gap-52 md:gap-24 gap-7 flex-nowrap;
+        @apply h-full w-full flex flex-col sm:flex-col md:flex-col lg:flex-row xl:flex-row items-center gap-20 md:gap-30 lg:gap-60 2xl:gap-72 flex-nowrap;
 
         .drinks {
-          @apply absolute left-1/4  bottom-0 md:h-[90vh] h-80;
+          @apply absolute left-1/2 -translate-x-1/2 md:bottom-1 xl:h-145 lg:h-140  md:h-full sm:h-99 h-80 sm:bottom-1 bottom-1;
         }
 
         .elements {
-          @apply absolute md:top-0 md:bottom-auto bottom-10 w-full lg:top-[-100px];
+          @apply absolute lg:-top-15  md:top-0  md:bottom-auto sm:bottom-5 bottom-0 w-full;
         }
 
         h1 {

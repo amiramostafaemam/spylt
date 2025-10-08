@@ -58,7 +58,6 @@ const HeroSection = () => {
         ease: "power1.inOut",
       });
     } else if (window.innerWidth >= 768) {
-      
       tl.to(".hero-content", {
         opacity: 1,
         y: 0,
@@ -68,7 +67,7 @@ const HeroSection = () => {
         .to(
           ".hero-text-scroll",
           {
-            duration: 0.8, 
+            duration: 0.8,
             clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
             ease: "circ.out",
           },
@@ -83,20 +82,20 @@ const HeroSection = () => {
             duration: 0.6,
           },
           "-=0.6"
-        ); 
+        );
     } else {
       // Mobile/Base: Basic clipPath animation only (lightweight)
       tl.to(".hero-content", {
         opacity: 1,
-        y: -10, 
+        y: -10,
         ease: "power1.inOut",
         duration: 0.6,
       }).to(
         ".hero-text-scroll",
         {
-          duration: 0.6, 
+          duration: 0.6,
           clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-          ease: "power2.out", 
+          ease: "power2.out",
         },
         "-=0.2"
       );
@@ -142,7 +141,7 @@ const HeroSection = () => {
             className="hero-text-scroll"
           >
             <div className="hero-subtitle">
-              <h1>Protein + Caffeine </h1> 
+              <h1>Protein + Caffeine </h1>
             </div>
           </div>
 
@@ -168,7 +167,7 @@ const HeroSection = () => {
           {isBase && (
             <img
               src="/images/hero-img.png"
-              className="mt-10 h-24 w-1/2 object-contain rounded-sm"
+              className="mt-15 h-24 w-1/2 object-contain rounded-sm absolute bottom-7"
               alt="Hero additional image"
             />
           )}
