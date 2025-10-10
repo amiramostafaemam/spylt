@@ -332,25 +332,25 @@ body::-webkit-scrollbar {
   }
 
   .nutrition-section {
-    @apply min-h-dvh xl:h-[120dvh] overflow-hidden relative;
+    @apply min-h-dvh xl:h-[120dvh] lg:h-[120dvh] md:h-[140dvh] relative mb-0 overflow-hidden;
 
     .big-img {
-      @apply w-full absolute xl:h-full md:h-2/3 h-1/2 left-0 bottom-0 object-bottom object-contain;
+      @apply w-full absolute inset-0 xl:h-full xl:translate-y-10 lg:h-full lg:translate-y-30 md:h-full md:translate-y-60 sm:translate-y-60 translate-y-40 sm:h-95  h-120 left-0 xl:object-cover lg:object-contain md:object-contain sm:object-cover object-cover overflow-visible;
     }
 
     .nutrition-title {
-      @apply xl:max-w-2xl md:py-0 py-3 md:pb-5 pb-0 lg:pb-0 md:text-center text-[#513022];
+      @apply xl:max-w-2xl md:py-0 py-3 md:pb-5 pb-0 lg:pb-0 md:text-center text-[#513022] sm:text-[4.5rem] md:text-[4.5rem] lg:text-[5.5rem] xl:text-[6.7rem] text-[3.5rem] font-bold uppercase xl:leading-[9vw] lg:leading-[9vw] md:leading-[9vw] sm:leading-[9vw] leading-[9vw] tracking-[-.35vw];
     }
 
     .nutrition-text-scroll {
-      @apply rotate-[-3deg] border-[.5vw] border-[#e3d3bc] text-nowrap opacity-0 md:-mt-28 -mt-24;
+      @apply rotate-[-3deg] border-[.5vw] border-[#e3d3bc] text-nowrap opacity-0 lg:-mt-31 md:-mt-22 sm:-mt-22 text-[3.5rem] sm:text-[4.5rem] md:text-[4.5rem] lg:text-[5.5rem] xl:text-[6.7rem];
     }
 
     .nutrition-box {
-      @apply absolute md:bottom-10 bottom-5 w-3/4 md:px-0 left-1/2 -translate-x-1/2 mb-3;
+      @apply absolute xl:bottom-13 lg:bottom-[5%] md:bottom-[5%] sm:bottom-[3%] bottom-[3%] md:w-full lg:w-full left-1/2 -translate-x-1/2;
 
       .list-wrapper {
-        @apply bg-[#fdebd2] rounded-full border-[.5vw] border-[#e8ddca] mx-auto max-w-7xl md:py-5 py-5 md:px-2 px-5 flex justify-between items-center;
+        @apply bg-[#fdebd2] rounded-full border-[.5vw] border-[#e8ddca] mx-auto  py-3  px-4 flex justify-between items-center w-110 sm:w-140 md:w-5/7 lg:w-5/7 sm:py-3 md:py-3 lg:py-3 sm:px-0 md:px-0 lg:px-0 xl:py-4;
 
         p {
           @apply text-[#865720];
@@ -358,7 +358,7 @@ body::-webkit-scrollbar {
       }
 
       .spacer-border {
-        @apply absolute right-0 top-1/2 transform -translate-y-1/2 md:h-18 h-16 w-px bg-[#C28C42];
+        @apply absolute right-0 top-1/2 transform -translate-y-1/2 xl:h-18 md:h-10 sm:h-8 w-px bg-[#C28C42];
       }
     }
   }

@@ -88,7 +88,7 @@ const MessageSection = () => {
               }}
               className="msg-text-scroll sm:mt-5 md:mt-5 lg:mb-27 xl:mt-25 mb-5 "
             >
-              <div className="bg-light-brown sm:py-3  md:py-3 px-2 lg:px-6 xl:py-5 xl:px-6 lg:py-5 py-1">
+              <div className="bg-light-brown sm:py-3 md:py-3 px-2 lg:px-6 xl:py-5 xl:px-6 lg:py-5 py-1">
                 <h2 className="text-red-brown sm:text-[4rem] md:text-[4.5rem] lg:text-[6rem] xl:text-[6.7rem] text-[2rem]">
                   Fuel Up
                 </h2>
