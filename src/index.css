@@ -401,18 +401,18 @@ body::-webkit-scrollbar {
   }
 
   .testimonials-section {
-    @apply bg-milk relative w-full h-[160dvh];
+    @apply bg-milk relative w-full xl:h-[180dvh] lg:h-[145dvh] md:h-[130dvh] sm:h-[120dvh] h-[110dvh];
 
     .pin-box {
-      @apply flex items-center justify-center w-2/3 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ps-52 xl:bottom-32 bottom-[50vh];
+      @apply flex items-center justify-center w-2/3 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-7 lg:top-0 xl:translate-y-5 lg:translate-y-2 md:translate-y-5 sm:translate-y-4 lg:bottom-0 bottom-[50vh] lg:ps-40;
 
       .vd-card {
-        @apply md:w-80 w-80 flex-none md:rounded-[2vw] rounded-3xl -ms-44 overflow-hidden xl:relative absolute border-[.5vw] border-milk;
+        @apply xl:w-80 lg:w-70 md:w-79 sm:w-70 w-65 flex-none md:rounded-[2vw] rounded-3xl overflow-hidden lg:relative absolute border-[.5vw] border-milk xl:-ms-40 lg:-ms-30;
       }
     }
 
     h1 {
-      @apply uppercase text-[20.5vw] leading-[105%] tracking-[-.4vw] ml-[2vw] font-bold;
+      @apply uppercase lg:text-[20.5vw] md:text-[21vw] sm:text-[22vw] text-[22.5vw] leading-[115%] tracking-[-.4vw] ml-[2vw] font-bold;
     }
   }
 
