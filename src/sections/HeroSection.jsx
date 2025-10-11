@@ -131,7 +131,7 @@ const HeroSection = () => {
           />
         )}
         <div className="hero-content opacity-0 relative">
-          <div className="overflow-hidden">
+          <div className="overflow-visible">
             <h1 className="hero-title">Freaking Delicious</h1>
           </div>
           <div

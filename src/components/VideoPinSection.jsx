@@ -4,7 +4,7 @@ import { useMediaQuery } from "react-responsive";
 
 const VideoPinSection = () => {
   const isMobile = useMediaQuery({
-    query: "(max-width: 768px)",
+    query: "(max-width: 640px)",
   });
 
   useGSAP(() => {
@@ -38,7 +38,7 @@ const VideoPinSection = () => {
       >
         <video src="/videos/pin-video.mp4" playsInline muted loop autoPlay />
 
-        <div className="abs-center md:scale-100 scale-200">
+        <div className="abs-center md:scale-100 sm:scale-100 scale-100">
           <img src="/images/circle-text.svg" alt="" className="spin-circle" />
           <div className="play-btn">
             <img

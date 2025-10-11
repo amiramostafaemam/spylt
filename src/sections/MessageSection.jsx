@@ -86,10 +86,10 @@ const MessageSection = () => {
               style={{
                 clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)",
               }}
-              className="msg-text-scroll sm:mt-5 md:mt-5 lg:mb-27 xl:mt-25 mb-5 "
+              className="msg-text-scroll sm:mt-2 md:mt-5 lg:mb-27 xl:mt-25 -mb-5 "
             >
               <div className="bg-light-brown sm:py-3 md:py-3 px-2 lg:px-6 xl:py-5 xl:px-6 lg:py-5 py-1">
-                <h2 className="text-red-brown sm:text-[4rem] md:text-[4.5rem] lg:text-[6rem] xl:text-[6.7rem] text-[2rem]">
+                <h2 className="text-red-brown sm:text-[5rem] md:text-[5.3rem] lg:text-[6rem] xl:text-[6.7rem] text-[4rem]">
                   Fuel Up
                 </h2>
               </div>
@@ -98,12 +98,12 @@ const MessageSection = () => {
               your future with every gulp of Perfect Protein
             </h1>
           </div>
-          <div className="flex-center xl:mt-15 mt-7 sm:mt-9">
-            <div className="max-w-xl px-7 flex-center overflow-hidden">
+          <div className="flex-center xl:mt-15 lg:mt-15 md:mt-12 mt-10 sm:mt-12">
+            <div className=" px-7 flex-center overflow-visible text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.5rem]">
               <p>
-                Rev up your rebel spirit and feed the adventure of life with
-                SPYLT, where you’re one chug away from epic nostalgia and
-                fearless fun.
+                Rev up your rebel spirit and feed the adventure of <br /> life
+                with SPYLT, where you’re one chug away from <br /> epic
+                nostalgia and fearless fun.
               </p>
             </div>
           </div>

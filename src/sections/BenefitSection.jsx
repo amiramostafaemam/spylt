@@ -5,41 +5,106 @@ import VideoPinSection from "../components/VideoPinSection";
 
 const BenefitSection = () => {
   useGSAP(() => {
-    const revealTl = gsap.timeline({
-      delay: 1,
+    // Animation for first paragraph
+    gsap.fromTo(
+      ".benefit-section p:first-of-type",
+      { opacity: 0.3, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".benefit-section p:first-of-type",
+          start: "top 90%",
+          end: "bottom 20%",
+          duration: 1.2,
+          scrub: 0.5,
+        },
+      }
+    );
+    // Timeline for the titles + "And much more"
+
+    const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".benefit-section",
-        start: "top 60%",
-        end: "top top",
+        start: "top center+=100",
+        end: "bottom center+=100",
         scrub: 1.5,
       },
     });
 
-    revealTl
-      .to(".benefit-section .first-title", {
-        duration: 1,
-        opacity: 1,
+    tl.fromTo(
+      ".benefit-section .first-title",
+      {
+        clipPath: "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)",
+        opacity: 0,
+      },
+      {
         clipPath: "polygon(0% 0%, 100% 0, 100% 100%, 0% 100%)",
-        ease: "circ.out",
-      })
-      .to(".benefit-section .second-title", {
-        duration: 1,
         opacity: 1,
-        clipPath: "polygon(0% 0%, 100% 0, 100% 100%, 0% 100%)",
         ease: "circ.out",
-      })
-      .to(".benefit-section .third-title", {
         duration: 1,
-        opacity: 1,
-        clipPath: "polygon(0% 0%, 100% 0, 100% 100%, 0% 100%)",
-        ease: "circ.out",
-      })
-      .to(".benefit-section .fourth-title", {
-        duration: 1,
-        opacity: 1,
-        clipPath: "polygon(0% 0%, 100% 0, 100% 100%, 0% 100%)",
-        ease: "circ.out",
-      });
+      }
+    )
+      .fromTo(
+        ".benefit-section .second-title",
+        {
+          clipPath: "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)",
+          opacity: 0,
+        },
+        {
+          clipPath: "polygon(0% 0%, 100% 0, 100% 100%, 0% 100%)",
+          opacity: 1,
+          ease: "circ.out",
+          duration: 0.8,
+        },
+        "-=0.3"
+      )
+      .fromTo(
+        ".benefit-section .third-title",
+        {
+          clipPath: "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)",
+          opacity: 0,
+        },
+        {
+          clipPath: "polygon(0% 0%, 100% 0, 100% 100%, 0% 100%)",
+          opacity: 1,
+          ease: "circ.out",
+          duration: 0.8,
+        },
+        "-=0.3"
+      )
+      .fromTo(
+        ".benefit-section .fourth-title",
+        {
+          clipPath: "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)",
+          opacity: 0,
+        },
+        {
+          clipPath: "polygon(0% 0%, 100% 0, 100% 100%, 0% 100%)",
+          opacity: 1,
+          ease: "circ.out",
+          duration: 0.8,
+        },
+        "-=0.3"
+      )
+      .fromTo(
+        ".benefit-section p:last-of-type",
+        {
+          y: 80,
+          opacity: 0,
+          scale: 0.98,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 1.4,
+          ease: "power3.out",
+        },
+        "-=0.2"
+      );
   });
 
   return (
@@ -51,7 +116,7 @@ const BenefitSection = () => {
             Explore the Key Benefits of Choosing SPYLT
           </p>
 
-          <div className="mt-20 col-center ">
+          <div className="mt-15 col-center md:mx-30">
             <ClipPathTitle
               title={"Shelf stable"}
               color={"#faeade"}
