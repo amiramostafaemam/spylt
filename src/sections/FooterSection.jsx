@@ -56,30 +56,30 @@ const FooterSection = () => {
         className="w-full object-cover -translate-y-1"
       />
       <div
-        className="flex flex-col justify-between md:px-8 mt-5 w-full h-[95vh] py-15 size-20"
+        className="flex flex-col justify-between mb-10 mt-5 sm:mt-5 md:mt-7 xl:mt-5 w-full xl:h-[95vh] lg:h-[80vh] md:h-[75vh] sm:h-[65vh] h-[55vh] xl:py-15 "
         style={{
           backgroundImage: `url('https://cdn.prod.website-files.com/669a8d6498ba88c08dfd2cd2/66a799f357e5045354c1d4e9_map.svg')`,
         }}
       >
-        <div className="relative inline-block md:translate-y-20 ms-15">
-          <div className="general-title relative flex flex-col justify-center items-center gap-5 -mt-8 ">
-            <div className="overflow-hidden place-self-start">
-              <h1 className="xl:max-w-2xl md:py-0 py-3 md:pb-5 pb-0 lg:pb-0 md:text-center text-[#FAEADE] footer-title ">
+        <div className="relative inline-block md:translate-y-20 sm:ms-10 mt-8 ms-8 sm:mt-12 md:mt-5 md:ms-10 lg:ms-10 xl:ms-15">
+          <div className="general-title relative flex flex-col justify-center items-center md:gap-5 lg:gap-5 xl:-mt-8 lg:-mt-7 ">
+            <div className=" place-self-start text-[4rem] sm:text-[4.8rem] md:text-[5.8rem] lg:text-[6.5rem]">
+              <h1 className=" md:py-0 py-3 md:pb-5 pb-0 lg:pb-0 md:text-center text-[#FAEADE] footer-title ">
                 Right Around
               </h1>
             </div>
             <div
               style={{ clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)" }}
-              className="rotate-[4deg] border-[#E9AA56] text-nowrap opacity-0 place-self-start corner-tit -mx-1 -mt-8 mb-8"
+              className="rotate-[4deg] border-[#E9AA56] text-nowrap opacity-0 place-self-start corner-tit -mx-1 mt-2 sm:mt-2 md:-mt-10 lg:-mt-5 xl:-mt-7 mb-5 sm:mb-10 md:mb-5 lg:mb-8 text-[4rem] sm:text-[4.8rem] md:text-[5.8rem] lg:text-[6.7rem]"
             >
-              <div className="bg-[#E9AA56] pb-2 md:pt-0 pt-2 px-3 inline-block  ">
+              <div className="bg-[#E9AA56] py-5 sm:py-3 md:py-2 pt-2 px-3  inline-block  ">
                 <h2 className="text-[#523122]">The Corner</h2>
               </div>
             </div>
           </div>
           <div className="flex lg:justify-start lg:mt-0 translate-y-5 ">
-            <div className="md:max-w- max-w-md">
-              <p className="text-base md:text-left text-balance font-paragraph text-milk">
+            <div>
+              <p className=" md:text-[1rem] lg:text-[1rem] xl:text-[1.2rem] md:text-left text-balance font-paragraph text-milk">
                 Buy our drinks at your local store or <br /> get them delivered
                 (to your door).
               </p>

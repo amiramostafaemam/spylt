@@ -26,11 +26,11 @@ const App = () => {
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <HeroSection />
-          <MessageSection />
+          {/* <MessageSection />
           <FlavorSection />
           <NutritionSection />
           <BenefitSection />
-          <TestimonialSection />
+          <TestimonialSection /> */}
           <FooterSection />
         </div>
       </div>
