@@ -99,7 +99,7 @@ const MessageSection = () => {
             </h1>
           </div>
           <div className="flex-center xl:mt-15 lg:mt-15 md:mt-12 mt-10 sm:mt-12">
-            <div className=" px-7 flex-center overflow-visible text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.5rem]">
+            <div className=" px-7 flex-center overflow-visible text-[0.9rem] sm:text-[1rem]">
               <p>
                 Rev up your rebel spirit and feed the adventure of <br /> life
                 with SPYLT, where you’re one chug away from <br /> epic

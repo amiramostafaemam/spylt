@@ -38,7 +38,7 @@ const FlavorTitle = () => {
     });
   });
   return (
-    <div className="general-title col-center h-full xl:gap-30 lg:gap-32 md:gap-27 sm:gap-25 gap-20 ">
+    <div className="general-title col-center h-full xl:gap-30 lg:gap-32 md:gap-27 sm:gap-25 gap-20 xl:pb-40">
       <div className=" xl:py-0 lg:py-0 md:py-7 py-4 first-text-split">
         <h1 className="xl:text-[8rem] lg:text-[6.8rem] md:text-[6.5rem] sm:text-[6rem] text-[4.5rem] font-bold uppercase xl:leading-[8vw] lg:leading-[8vw] md:leading-[6vw] leading-[6vw] tracking-[-.35vw]">
           We have 6
@@ -46,7 +46,7 @@ const FlavorTitle = () => {
       </div>
       <div
         style={{ clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)" }}
-        className="flavor-text-scroll xl:mb-0 lg:mb-0 md:mb-8 sm:mb-6 mb-5"
+        className="flavor-text-scroll xl:mb-0 lg:mb-2 md:mb-8 sm:mb-3 mb-0"
       >
         <div className="bg-mid-brown xl:py-5 xl:px-6 lg:py-7 lg:px-6 md:py-12 md:px-3 sm:py-10 sm:px-3 py-8 px-3 ">
           <h2 className="text-milk xl:text-[7.5rem] lg:text-[6.5rem] md:text-[6.3rem] sm:text-[6rem] text-[4.2rem] font-bold uppercase xl:leading-[8vw] lg:leading-[8vw] md:leading-[6vw] leading-[6vw] tracking-[-.35vw]">
