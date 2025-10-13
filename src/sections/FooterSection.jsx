@@ -72,7 +72,7 @@ const FooterSection = () => {
               style={{ clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)" }}
               className="rotate-[4deg] border-[#E9AA56] text-nowrap opacity-0 place-self-start corner-tit -mx-1 mt-2 sm:mt-2 md:-mt-10 lg:-mt-5 xl:-mt-7 mb-5 sm:mb-10 md:mb-5 lg:mb-8 text-[4rem] sm:text-[4.8rem] md:text-[5.8rem] lg:text-[6.7rem]"
             >
-              <div className="bg-[#E9AA56] py-5 sm:py-3 md:py-2 pt-2 px-3  inline-block  ">
+              <div className="bg-[#E9AA56] py-5 sm:py-3 md:py-4 pt-2 px-3  inline-block  ">
                 <h2 className="text-[#523122]">The Corner</h2>
               </div>
             </div>
@@ -89,7 +89,7 @@ const FooterSection = () => {
       </div>
 
       {/* second section */}
-      <div className="xl:h-[110dvh] relative md:pt-[20vh] pt-[10vh]">
+      <div className=" relative md:pt-[4vh] sm:pt-[2vh]">
         <div className="overflow-hidden">
           <h1 className="general-title text-center text-milk py-5 z-10">
             #CHUGRESPONSIBLY
@@ -99,7 +99,7 @@ const FooterSection = () => {
         {isMobile ? (
           <img
             src="/images/footer-drink.png"
-            className="absolute top-0 object-contain"
+            className="absolute -left-15 -top-30 object-contain sm:mt-12   h-[150vh] sm:z-1"
           />
         ) : (
           <video
@@ -107,11 +107,11 @@ const FooterSection = () => {
             autoPlay
             playsInline
             muted
-            className="absolute -top-10 object-contain mix-blend-lighten"
+            className="absolute -top-10  object-contain mix-blend-lighten"
           />
         )}
 
-        <div className="flex-center gap-5 relative md:mt-20 mt-5">
+        <div className="flex-center gap-5 relative xl:mt-10 lg:mt-8 md:mt-5 sm:mt-8 sm:mb-10 mb-10">
           <div className="social-btn">
             <img src="./images/yt.svg" alt="" />
           </div>
@@ -123,8 +123,8 @@ const FooterSection = () => {
           </div>
         </div>
 
-        <div className="mt-30 md:px-10 px-5 flex gap-10 md:flex-row flex-col justify-between text-milk font-paragraph md:text-sm font-medium">
-          <div className="flex md:gap-12 gap-5 ">
+        <div className=" xl:mt-22 lg:mt-15 md:px-10 px-5 flex md:gap-10 sm:gap-12 gap-12 md:flex-row flex-col md:justify-between sm:items-end items-end text-milk font-paragraph xl:text-[1.2rem] lg:text-[1rem] font-medium">
+          <div className="flex md:gap-12 gap-15">
             <div>
               <p>SPYLT Flavors</p>
             </div>
@@ -140,12 +140,12 @@ const FooterSection = () => {
             </div>
           </div>
 
-          <div className="md:max-w-lg ">
-            <p className="pe-12">
-              Get Exclusive Early Access and Stay Informed About Product
+          <div className="md:text-[1rem] md:-mt-10 mt-15">
+            <p>
+              Get Exclusive Early Access and Stay Informed <br /> About Product
               Updates, Events, and More!
             </p>
-            <div className="flex justify-between items-center border-b border-[#D9D9D9] pt-5 pb-3 md:mt-10">
+            <div className="flex justify-between items-center border-b border-[#D9D9D9] pt-5 pb-3 sm:mt-5 md:mt-10 sm:mb-5 mt-15">
               <input
                 type="email"
                 placeholder="Enter your email"

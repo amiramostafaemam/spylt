@@ -417,10 +417,10 @@ body::-webkit-scrollbar {
   }
 
   .footer-section {
-    @apply xl:min-h-[280vh] overflow-hidden relative bg-[#222123];
+    @apply xl:h-[260vh] lg:h-[220vh] md:h-[195vh] sm:h-[205vh] h-[200vh] overflow-hidden relative bg-[#222123];
 
     .social-btn {
-      @apply border border-[#faeade33] md:size-[5vw] size-12 md:p-5 p-3 flex justify-center items-center rounded-full hover:bg-[#ffffff1a] transition-colors cursor-pointer -mt-6;
+      @apply border border-[#faeade33] xl:size-[5vw] lg:size-[6vw] lg:p-3 md:size-[5vw] sm:size-[6vw] sm:p-1 size-[8vw] md:p-2 p-2 flex justify-center items-center rounded-full hover:bg-[#ffffff1a] transition-colors cursor-pointer xl:-mt-5 lg:-mt-4;
     }
 
     input {
@@ -428,7 +428,7 @@ body::-webkit-scrollbar {
     }
 
     .copyright-box {
-      @apply xl:absolute w-full md:px-10 px-5 py-7 bottom-0 text-milk opacity-50 md:text-base font-paragraph flex gap-7 md:flex-row flex-col-reverse md:justify-between justify-center items-center;
+      @apply absolute w-full md:px-10 px-5 py-7 bottom-0 text-milk opacity-50 xl:text-[1.2rem] lg:text-[1.1rem] md:text-[1rem] font-paragraph flex gap-7 md:flex-row flex-col-reverse md:justify-between justify-center items-center;
 
       p {
         @apply text-center;
