@@ -38,7 +38,7 @@ const FlavorTitle = () => {
     });
   });
   return (
-    <div className="general-title col-center h-full xl:gap-30 lg:gap-32 md:gap-27 sm:gap-25 gap-20 xl:pb-40">
+    <div className="general-title col-center h-full xl:gap-30 lg:gap-32 md:gap-27 sm:gap-18 gap-20 xl:pb-40">
       <div className=" xl:py-0 lg:py-0 md:py-7 py-4 first-text-split">
         <h1 className="xl:text-[8rem] lg:text-[6.8rem] md:text-[6.5rem] sm:text-[6rem] text-[4.5rem] font-bold uppercase xl:leading-[8vw] lg:leading-[8vw] md:leading-[6vw] leading-[6vw] tracking-[-.35vw]">
           We have 6

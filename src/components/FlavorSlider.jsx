@@ -232,7 +232,7 @@ const FlavorSlider = () => {
         {flavorlists.map((flavor, index) => (
           <div
             key={flavor.name}
-            className={`flavor-card relative z-30 xl:w-[50vw] lg:w-[70vw] md:w-[65vw] w-[80vw] xl:h-[75vh] lg:h-[70vh] md:h-[80vh] h-[55vh] flex-none xl:rounded-3xl lg:rounded-3xl md:rounded-3xl rounded-2xl overflow-visible md:mb-10 sm:mb-35 ${
+            className={`flavor-card relative z-30 xl:w-[50vw] lg:w-[70vw] md:w-[65vw] w-[80vw] xl:h-[75vh] lg:h-[70vh] md:h-[80vh] h-[55vh] flex-none xl:rounded-3xl lg:rounded-3xl md:rounded-3xl rounded-2xl overflow-visible md:mb-10 sm:mb-10 ${
               flavor.rotation
             } ${
               index === flavorlists.length - 1

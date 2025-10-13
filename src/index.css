@@ -329,7 +329,7 @@ body::-webkit-scrollbar {
   }
 
   .nutrition-section {
-    @apply min-h-dvh xl:h-[120dvh] lg:h-[120dvh] md:h-[140dvh] relative mb-0 overflow-hidden;
+    @apply min-h-dvh xl:h-[120dvh] lg:h-[120dvh] md:h-[140dvh] sm:h-[90dvh] relative mb-0 overflow-hidden;
 
     .big-img {
       @apply w-full absolute inset-0 xl:h-full xl:translate-y-10 lg:h-full lg:translate-y-30 md:h-full md:translate-y-60 sm:translate-y-60 translate-y-40 sm:h-95  h-120 left-0 xl:object-cover lg:object-contain md:object-contain sm:object-cover object-cover overflow-visible;
