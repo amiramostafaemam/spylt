@@ -2,8 +2,9 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: "ProximaNova, sans-serif";
-  src: url("/fonts/ProximaNova-Regular.otf");
+  font-family: "ProximaNova";
+  src: url("/fonts/ProximaNova-Regular.otf") format("opentype");
+  font-display: swap;
 }
 
 @theme {
@@ -19,7 +20,7 @@
   --color-red: #a02128;
   --color-milk: #faeade;
   --font-sans: "Antonio", sans-serif;
-  --font-paragraph: "ProximaNova, sans-serif";
+  --font-paragraph: "ProximaNova", sans-serif;
 }
 
 /* Global box-sizing fix */
@@ -71,7 +72,7 @@ body::-webkit-scrollbar {
     @apply relative bg-milk w-screen overflow-hidden h-dvh;
 
     .hero-content {
-      @apply relative z-10 w-full h-full flex flex-col xl:justify-center lg:justify-center md:justify-center sm:justify-center items-center translate-y-10 xl:pt-0 lg:pt-0 md:mt-5 sm:mt-2 pt-10 mt-10;
+      @apply relative z-10 w-full h-full flex flex-col justify-center items-center translate-y-10 xl:pt-0 lg:pt-0 md:mt-5 sm:mt-2 pt-10 mt-10;
 
       .hero-title {
         @apply text-dark-brown xl:text-[6.7rem] lg:text-[6.7rem] md:text-[6rem] sm:text-[5.5rem] text-[3rem] font-bold uppercase xl:leading-[9vw] lg:leading-[9vw] md:leading-[9vw] sm:leading-[9vw] leading-[9vw] tracking-[-.35vw] xl:-mb-2 lg:mb-0 md:mb-7 sm:mb-4 mb-3 z-20;
@@ -101,8 +102,6 @@ body::-webkit-scrollbar {
       }
 
       /* Drip styles */
-      .drip-1,
-      .drip-2,
       .drip-3,
       .drip-4,
       .drip-5,
@@ -113,9 +112,7 @@ body::-webkit-scrollbar {
       .drip-10,
       .drip-11,
       .drip-12,
-      .drip-13,
-      .drip-14,
-      .drip-15 {
+      .drip-13 {
         position: absolute;
         width: 8px;
         height: 0px;
@@ -284,8 +281,12 @@ body::-webkit-scrollbar {
     }
 
     .msg-text-scroll {
-      /* Responsive: Scale translate-y and border for better mobile positioning */
-      @apply rotate-[2.5deg] sm:rotate-[3deg] md:rotate-[4deg] -translate-y-7 sm:-translate-y-25 md:-translate-y-15 lg:translate-y-5 xl:-translate-y-12 absolute z-10;
+      /* In flow (not absolute) at every breakpoint, so "Fuel Up" gets its
+         own place in the stack instead of floating over a headline — a
+         negative margin (scaled up with the wrapper's gap per breakpoint)
+         is what gives it a slight, controlled overlap with both lines
+         instead of a dead gap or a heavy cover-up. */
+      @apply rotate-[2.5deg] sm:rotate-[3deg] md:rotate-[4deg] -my-11 sm:-my-14 md:-my-16 lg:-my-20 xl:-my-28 z-10;
       border-width: clamp(0.3vw, 0.5rem, 0.6vw); /* top right&left bottom*/
       border-color: #7f3b2d;
       border-style: solid;
@@ -311,7 +312,7 @@ body::-webkit-scrollbar {
       @apply lg:h-dvh min-h-dvh md:min-h-fit w-full mt-10 md:mt-10 xl:mt-0;
 
       .flavors {
-        @apply h-full w-full flex flex-col sm:flex-col md:flex-col lg:flex-row xl:flex-row items-center gap-20 md:gap-30 lg:gap-60 2xl:gap-72 flex-nowrap;
+        @apply h-full w-full flex flex-col sm:flex-col md:flex-col lg:flex-row xl:flex-row items-center gap-8 md:gap-30 lg:gap-60 2xl:gap-72 flex-nowrap;
 
         .drinks {
           @apply absolute left-1/2 -translate-x-1/2 md:bottom-1 xl:h-145 lg:h-140  md:h-full sm:h-99 h-80 sm:bottom-1 bottom-1;
@@ -329,10 +330,16 @@ body::-webkit-scrollbar {
   }
 
   .nutrition-section {
-    @apply min-h-dvh xl:h-[120dvh] lg:h-[120dvh] md:h-[140dvh] sm:h-[90dvh] relative mb-0 overflow-hidden;
+    /* Fixed px (not dvh) at base: the image inside is absolutely positioned
+       with a fixed-px translate + height, so a viewport-relative section
+       height can end up shorter than the image needs on some screens,
+       clipping it or leaving a gap below it. A fixed height that's tuned to
+       fit the image stays correct regardless of the device's actual
+       viewport height. */
+    @apply h-[706px] xl:h-[120dvh] lg:h-[120dvh] md:h-[140dvh] sm:h-[90dvh] relative mb-0 overflow-hidden;
 
     .big-img {
-      @apply w-full absolute inset-0 xl:h-full xl:translate-y-10 lg:h-full lg:translate-y-30 md:h-full md:translate-y-60 sm:translate-y-60 translate-y-40 sm:h-95  h-120 left-0 xl:object-cover lg:object-contain md:object-contain sm:object-cover object-cover overflow-visible;
+      @apply w-full absolute inset-0 xl:h-full xl:translate-y-10 lg:h-full lg:translate-y-30 md:h-full md:translate-y-60 sm:translate-y-60 translate-y-56 sm:h-95  h-120 left-0 xl:object-cover lg:object-contain md:object-contain sm:object-cover object-cover overflow-visible;
     }
 
     .nutrition-title {
@@ -344,7 +351,7 @@ body::-webkit-scrollbar {
     }
 
     .nutrition-box {
-      @apply absolute xl:bottom-13 lg:bottom-[5%] md:bottom-[5%] sm:bottom-[3%] bottom-[3%] md:w-full lg:w-full left-1/2 -translate-x-1/2;
+      @apply absolute xl:bottom-13 lg:bottom-[5%] md:bottom-[5%] sm:bottom-[3%] bottom-[18%] md:w-full lg:w-full left-1/2 -translate-x-1/2;
 
       .list-wrapper {
         @apply bg-[#fdebd2] rounded-full border-[.5vw] border-[#e8ddca] mx-auto  py-3  px-4 flex justify-between items-center w-110 sm:w-140 md:w-5/7 lg:w-5/7 sm:py-3 md:py-3 lg:py-3 sm:px-0 md:px-0 lg:px-0 xl:py-4;
@@ -384,7 +391,7 @@ body::-webkit-scrollbar {
     }
 
     .vd-pin-section {
-      @apply md:h-[110vh] sm:mt-5 sm:h-[110vh] h-[100vh] overflow-hidden md:!-translate-y-[15%] sm:!-translate-y-[15%] !-translate-y-[20%] md:mt-0;
+      @apply md:h-[110vh] sm:mt-5 sm:h-[110vh] h-[100vh] overflow-hidden md:!-translate-y-[15%] sm:!-translate-y-[15%] !-translate-y-[6%] md:mt-0;
 
       video {
         @apply size-full absolute inset-0 object-cover;
@@ -404,10 +411,10 @@ body::-webkit-scrollbar {
     @apply bg-milk relative w-full xl:h-[180dvh] lg:h-[145dvh] md:h-[130dvh] sm:h-[120dvh] h-[110dvh];
 
     .pin-box {
-      @apply flex items-center justify-center w-2/3 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-7 lg:top-0 xl:translate-y-5 lg:translate-y-2 md:translate-y-5 sm:translate-y-4 lg:bottom-0 bottom-[50vh] lg:ps-40;
+      @apply flex items-center justify-center w-[88vw] sm:w-2/3 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:top-0 xl:translate-y-5 lg:translate-y-2 md:translate-y-5 sm:translate-y-4 lg:bottom-0 sm:bottom-[50vh] lg:ps-40;
 
       .vd-card {
-        @apply xl:w-80 lg:w-70 md:w-79 sm:w-70 w-65 flex-none md:rounded-[2vw] rounded-3xl overflow-hidden lg:relative absolute border-[.5vw] border-milk xl:-ms-40 lg:-ms-30;
+        @apply xl:w-80 lg:w-70 md:w-79 sm:w-70 w-[88vw] max-h-[65vh] sm:max-h-none flex-none md:rounded-[2vw] rounded-3xl overflow-hidden lg:relative absolute border-[.5vw] border-milk xl:-ms-40 lg:-ms-30;
       }
     }
 
@@ -417,7 +424,7 @@ body::-webkit-scrollbar {
   }
 
   .footer-section {
-    @apply xl:h-[260vh] lg:h-[220vh] md:h-[195vh] sm:h-[205vh] h-[200vh] overflow-hidden relative bg-[#222123];
+    @apply xl:h-[260vh] lg:h-[220vh] md:h-[195vh] sm:h-[205vh] h-[150vh] overflow-hidden relative bg-[#222123];
 
     .social-btn {
       @apply border border-[#faeade33] xl:size-[5vw] lg:size-[6vw] lg:p-3 md:size-[5vw] sm:size-[6vw] sm:p-1 size-[8vw] md:p-2 p-2 flex justify-center items-center rounded-full hover:bg-[#ffffff1a] transition-colors cursor-pointer xl:-mt-5 lg:-mt-4;
@@ -428,7 +435,7 @@ body::-webkit-scrollbar {
     }
 
     .copyright-box {
-      @apply absolute w-full md:px-10 px-5 py-7 bottom-0 text-milk opacity-50 xl:text-[1.2rem] lg:text-[1.1rem] md:text-[1rem] font-paragraph flex gap-7 md:flex-row flex-col-reverse md:justify-between justify-center items-center;
+      @apply static sm:absolute w-full md:px-10 px-5 py-7 sm:bottom-0 text-milk opacity-50 xl:text-[1.2rem] lg:text-[1.1rem] md:text-[1rem] font-paragraph flex gap-7 md:flex-row flex-col-reverse md:justify-between justify-center items-center;
 
       p {
         @apply text-center;
@@ -455,13 +462,6 @@ body::-webkit-scrollbar {
 }
 
 /* Hero Section Responsive Media Queries */
-@media (max-width: 1023px) {
-  /* Hide video background on tablet and mobile */
-  .hero-container video {
-    display: none !important;
-  }
-}
-
 @media (max-width: 767px) {
   /* Mobile-specific hero adjustments */
   .hero-container {
@@ -491,8 +491,6 @@ body::-webkit-scrollbar {
 /* Tablet optimizations */
 @media (min-width: 768px) and (max-width: 1023px) {
   /* Reduce complex animations on tablet */
-  .drip-1,
-  .drip-2,
   .drip-3,
   .drip-4,
   .drip-5,
@@ -503,9 +501,7 @@ body::-webkit-scrollbar {
   .drip-10,
   .drip-11,
   .drip-12,
-  .drip-13,
-  .drip-14,
-  .drip-15 {
+  .drip-13 {
     transition-duration: 0.3s;
   }
 }
@@ -524,14 +520,73 @@ body::-webkit-scrollbar {
     line-height: 1.1;
   }
 
-  .msg-text-scroll {
-    /* Reduce rotation for better mobile readability */
-    transform: rotate(1deg) translateY(-0.5rem);
-  }
-
   /* Ensure text doesn't overflow on very small screens */
   .message-content h1 {
     word-wrap: break-word;
     hyphens: auto;
+  }
+}
+
+/* FAQ accordion — grid-rows trick animates height without measuring "auto" */
+.faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+.faq-item[data-open="true"] .faq-answer {
+  grid-template-rows: 1fr;
+}
+
+/* Custom cursor — liquid "drip" motif, echoes the .drip-* shapes on the
+   CTA button (desktop/mouse only — see CustomCursor.jsx) */
+.cursor-drip,
+.cursor-drip-trail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  translate: -50% -70%;
+  border-radius: 50% 50% 50% 4px;
+  pointer-events: none;
+  z-index: 9999;
+}
+.cursor-drip {
+  width: 8px;
+  height: 8px;
+  background: var(--color-dark-brown);
+}
+.cursor-drip-trail {
+  width: 20px;
+  height: 20px;
+  background: rgba(227, 164, 88, 0.55);
+  border: 1.5px solid rgba(82, 49, 34, 0.35);
+}
+body.custom-cursor-active,
+body.custom-cursor-active * {
+  cursor: none !important;
+}
+
+/* Below sm, stack every testimonial card at the exact same spot (instead of
+   flex-laid-out side by side) so the scroll reveal covers one with the next —
+   one video takes over the screen at a time instead of a fanned-out row. */
+@media (max-width: 639px) {
+  .testimonials-section .pin-box {
+    /* Absolutely-positioned cards no longer contribute in-flow height here,
+       so pin-box needs an explicit one to center them against. */
+    height: 65vh;
+  }
+
+  .testimonials-section .pin-box .vd-card {
+    /* The card also carries a plain "relative" class in JSX, which — being
+       in Tailwind's utilities layer — beats this file's components-layer
+       "absolute", so it must be repeated here to actually take over the
+       stacking position. Centered via inset+margin, not translate — GSAP
+       owns this element's transform for the slide-up reveal and clears any
+       standalone translate we'd set. */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
   }
 }

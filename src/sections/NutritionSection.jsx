@@ -7,7 +7,6 @@ import gsap from "gsap";
 
 const NutritionSection = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 640px)" });
-  // const isSmall= useMediaQuery({ query: "(max-width: 1023px)" });
 
   const [lists, setLists] = useState(nutrientLists);
   useEffect(() => {
@@ -60,12 +59,24 @@ const NutritionSection = () => {
 
   return (
     <section className="nutrition-section">
-      <img
-        src="/images/slider-dip.png"
-        alt=""
-        className="w-full object-cover "
-      />
-      <img src="/images/big-img.png" alt="" className="big-img z-15 " />
+      <picture>
+        <source srcSet="/images/slider-dip.webp" type="image/webp" />
+        <img
+          src="/images/slider-dip.png"
+          alt=""
+          loading="lazy"
+          className="w-full object-cover "
+        />
+      </picture>
+      <picture>
+        <source srcSet="/images/big-img.webp" type="image/webp" />
+        <img
+          src="/images/big-img.png"
+          alt="SPYLT protein drink bottle"
+          loading="lazy"
+          className="big-img z-15 "
+        />
+      </picture>
       <div className="flex md:flex-row lg:flex-row flex-col justify-between lg:py-6 lg:px-5 md:px-5 md:py-4 sm:px-8 sm:py-0 sm:mb-2  md:mt-1 mt-5 ms-3">
         <div className="relative inline-block md:translate-y-8 lg:translate-y-5 xl:translate-y-12 z-20">
           <div className="general-title relative flex flex-col justify-center items-center xl:gap-22 lg:gap-25 md:gap-15 sm:gap-22 xl:-mt-8">

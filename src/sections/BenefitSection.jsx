@@ -29,7 +29,8 @@ const BenefitSection = () => {
       scrollTrigger: {
         trigger: ".benefit-section",
         start: "top center+=100",
-        end: "bottom center+=100",
+        endTrigger: ".overlay-box",
+        end: "top center+=100",
         scrub: 1.5,
       },
     });

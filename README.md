@@ -6,9 +6,10 @@
   **Interactive Protein Drink Landing Page**
   
   [![Live Demo](https://img.shields.io/badge/🌐_LIVE_DEMO-Visit_Site-success?style=for-the-badge)](https://spylt-theta.vercel.app/)
-  [![React](https://img.shields.io/badge/React-18+-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://react.dev/)
-  [![GSAP](https://img.shields.io/badge/GSAP-3+-88CE02?style=for-the-badge&logo=greensock&logoColor=white)](https://greensock.com/gsap/)
-  [![Tailwind](https://img.shields.io/badge/Tailwind-3+-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+  [![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://react.dev/)
+  [![GSAP](https://img.shields.io/badge/GSAP-3.13-88CE02?style=for-the-badge&logo=greensock&logoColor=white)](https://greensock.com/gsap/)
+  [![Tailwind](https://img.shields.io/badge/Tailwind-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+  [![Vitest](https://img.shields.io/badge/Tested_with-Vitest-6E9F18?style=for-the-badge&logo=vitest&logoColor=white)](https://vitest.dev/)
   
 </div>
 
@@ -16,20 +17,21 @@
 
 ## 🎯 About
 
-Modern landing page for SPYLT protein drinks featuring advanced GSAP animations, smooth scrolling, and fully responsive design.
+Interactive landing page for SPYLT protein drinks — advanced GSAP scroll animations, a custom magnetic cursor, and a fully responsive, accessible, and performance-tuned build. Built as a portfolio piece to showcase animation engineering and production-quality front-end craft, not just a static mockup.
 
-**Tech Stack:** React • Vite • GSAP • Tailwind CSS
+**Tech Stack:** React 19 • Vite 7 • GSAP 3 (ScrollTrigger, ScrollSmoother, SplitText) • Tailwind CSS 4 • Vitest
 
 ---
 
 ## ✨ Key Features
 
--  Advanced scroll-based animations with GSAP ScrollTrigger
--  Interactive parallax effects on hover/touch
--  Fully responsive (mobile-first design)
--  Video backgrounds with smooth transitions
--  60fps performance optimization
--  Horizontal/vertical adaptive scrolling
+-  Advanced scroll-based animations with GSAP ScrollTrigger + ScrollSmoother
+-  Custom magnetic cursor and a magnetic hero CTA (desktop, hover-capable pointers only)
+-  Interactive parallax effects on hover/touch, with real tap support on touch devices
+-  Working newsletter form (client-side validation) and a functional FAQ accordion
+-  Fully responsive (mobile-first design) and keyboard/screen-reader accessible
+-  Preloader, lazy-loaded media, and WebP images with automatic PNG fallback
+-  Horizontal/vertical adaptive scrolling per breakpoint
 
 ---
 
@@ -75,7 +77,13 @@ Modern landing page for SPYLT protein drinks featuring advanced GSAP animations,
 ### Testimonials
 <img src="./public/images/screenshots/testimonialsSection.PNG" width="100%"/>
 
-**Features:** 7 stacked video cards • Hover-to-play interaction • 3D rotation effects
+**Features:** 7 stacked video cards • Hover-to-play on desktop, tap-to-play on touch • 3D rotation effects • Poster frames + `preload="none"` so idle cards cost nothing until interacted with
+
+---
+
+### FAQ
+
+**Features:** Accessible single-open accordion (`aria-expanded`, `aria-controls`) • Animated with a pure-CSS `grid-template-rows` reveal • Scroll-in entrance via GSAP ScrollTrigger
 
 ---
 
@@ -83,7 +91,7 @@ Modern landing page for SPYLT protein drinks featuring advanced GSAP animations,
 <img src="./public/images/screenshots/footer1.PNG" width="100%"/>
 <img src="./public/images/screenshots/footer2.PNG" width="100%"/>
 
-**Features:** Animated title reveal • Newsletter signup • Social media links
+**Features:** Animated title reveal • Working newsletter signup with inline validation feedback • Social links
 
 ---
 
@@ -101,6 +109,12 @@ npm run dev
 
 # Build for production
 npm run build
+
+# Run tests
+npm run test
+
+# Lint
+npm run lint
 ```
 
 ---
@@ -119,12 +133,12 @@ npm run build
 ## Technologies
 
 **Frontend**
-- React 18.3.1
-- Vite 5+
-- Tailwind CSS 3+
+- React 19
+- Vite 7
+- Tailwind CSS 4
 
 **Animation**
-- GSAP 3.12.5
+- GSAP 3.13
 - ScrollTrigger
 - ScrollSmoother
 - SplitText
@@ -132,19 +146,45 @@ npm run build
 **Utils**
 - React Responsive
 
+**Testing & Quality**
+- Vitest + React Testing Library
+- ESLint (React Hooks rules enabled)
+- GitHub Actions CI (lint → test → build on every push/PR)
+
+---
+
+## ✅ Testing & CI
+
+This project ships with a real test suite, not just a build check:
+
+```bash
+npm run test   # Vitest + React Testing Library
+```
+
+Every push and pull request runs `lint → test → build` via GitHub Actions
+(see [`.github/workflows/ci.yml`](.github/workflows/ci.yml)).
+
 ---
 
 ## 📂 Project Structure
 
 ```
 spylt/
+├── .github/workflows/    # CI (lint → test → build)
 ├── public/
-│   ├── images/          # Assets & screenshots
-│   └── videos/          # Video files
+│   ├── images/           # Assets, WebP + PNG fallback pairs, screenshots
+│   ├── videos/           # Video files
+│   ├── robots.txt
+│   └── sitemap.xml
 ├── src/
-│   ├── components/      # Reusable components
-│   ├── sections/        # Page sections
-│   ├── constants/       # Data & configs
+│   ├── components/       # Reusable components (+ *.test.jsx)
+│   │   ├── Preloader.jsx
+│   │   ├── CustomCursor.jsx
+│   │   ├── BackToTop.jsx
+│   │   └── ...
+│   ├── sections/         # Page sections (+ *.test.jsx)
+│   ├── constants/        # Data & configs (+ index.test.js)
+│   ├── test/setup.js     # Vitest + Testing Library setup
 │   ├── App.jsx
 │   └── main.jsx
 ├── index.html
@@ -155,11 +195,20 @@ spylt/
 
 ## ⚡ Performance
 
-- Conditional rendering per device
-- Lazy-loaded videos
-- Hardware-accelerated animations
-- Optimized GSAP timelines
-- WebP images
+- Conditional rendering per device (no desktop video shipped to mobile, and vice versa)
+- `preload="none"` + poster frames on the 7 testimonial videos — nothing downloads until a card is actually interacted with
+- Heavy PNGs converted to WebP (largest asset went from 1.17MB to 96KB) with automatic `<picture>` fallback
+- `loading="lazy"` on below-the-fold images
+- Hardware-accelerated, GPU-friendly GSAP timelines (transform/opacity/clip-path only)
+
+---
+
+## ♿ Accessibility
+
+- Every interactive element is a real `<button>`/`<a>` (keyboard-focusable, screen-reader friendly) — no click handlers on bare `<div>`s
+- FAQ accordion follows the WAI-ARIA disclosure pattern (`aria-expanded`, `aria-controls`, `role="region"`)
+- Touch devices get tap-to-play on testimonial cards instead of a hover-only interaction they could never trigger
+- Meaningful `alt` text on product imagery, empty `alt=""` reserved for purely decorative art
 
 ---
 

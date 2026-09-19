@@ -117,7 +117,7 @@ const FlavorSlider = () => {
         "-=0.5"
       );
     }
-  });
+  }, [isDesktop, isLarge, isMedium]);
 
   // Responsive parallax effect handler
   const handleInteractionMove = (clientX, clientY, card) => {
@@ -232,7 +232,7 @@ const FlavorSlider = () => {
         {flavorlists.map((flavor, index) => (
           <div
             key={flavor.name}
-            className={`flavor-card relative z-30 xl:w-[50vw] lg:w-[70vw] md:w-[65vw] w-[80vw] xl:h-[75vh] lg:h-[70vh] md:h-[80vh] h-[55vh] flex-none xl:rounded-3xl lg:rounded-3xl md:rounded-3xl rounded-2xl overflow-visible md:mb-10 sm:mb-10 ${
+            className={`flavor-card relative z-30 xl:w-[50vw] lg:w-[70vw] md:w-[65vw] w-[80vw] xl:h-[75vh] lg:h-[70vh] md:h-[80vh] h-[42vh] flex-none xl:rounded-3xl lg:rounded-3xl md:rounded-3xl rounded-2xl overflow-visible md:mb-10 sm:mb-10 ${
               flavor.rotation
             } ${
               index === flavorlists.length - 1
@@ -248,15 +248,17 @@ const FlavorSlider = () => {
             <img
               src={`/images/${flavor.color}-bg.svg`}
               alt=""
-              className="absolute bottom-0 w-full h-60 object-cover xl:rounded-3xl lg:rounded-3xl md:rounded-3xl sm:rounded-2xl rounded:3xl xl:h-full xl:w-175 lg:h-full sm:h-77 md:h-90  "
+              loading="lazy"
+              className="absolute bottom-0 w-full h-60 object-cover xl:rounded-3xl lg:rounded-3xl md:rounded-3xl sm:rounded-2xl rounded-3xl xl:h-full xl:w-175 lg:h-full sm:h-77 md:h-90  "
               style={{ zIndex: 10 }}
             />
 
             {/* Drinks image with z-index: 30 and slight protrusion */}
             <img
               src={`/images/${flavor.color}-drink.webp`}
-              alt=""
-              className="drinks  ;"
+              alt={`${flavor.name} bottle`}
+              loading="lazy"
+              className="drinks"
               style={{
                 zIndex: 30,
                 transform: "translateY(0%) scale(1.02) ",
@@ -267,6 +269,7 @@ const FlavorSlider = () => {
             <img
               src={`/images/${flavor.color}-elements.webp`}
               alt=""
+              loading="lazy"
               className="elements"
               style={{
                 zIndex: 35,

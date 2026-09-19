@@ -24,19 +24,31 @@ const VideoPinSection = () => {
         ease: "power1.inOut",
       });
     }
-  });
+  }, [isMobile]);
+
+  // The pin/circle-reveal effect this section relies on is desktop-only, and
+  // the plain circle-clipped video looked broken on mobile — so skip the
+  // video itself there, but keep the section (and its height) in place since
+  // the testimonials section right after it is calibrated to overlap it by a
+  // fixed amount.
+  if (isMobile) return <section className="vd-pin-section" />;
 
   return (
     <section className="vd-pin-section">
       <div
         style={{
-          clipPath: isMobile
-            ? "circle(100% at 50% 50%)"
-            : "circle(6% at 50% 50%)",
+          clipPath: "circle(6% at 50% 50%)",
         }}
         className="size-full video-box"
       >
-        <video src="/videos/pin-video.mp4" playsInline muted loop autoPlay />
+        <video
+          src="/videos/pin-video.mp4"
+          playsInline
+          muted
+          loop
+          autoPlay
+          preload="metadata"
+        />
 
         <div className="abs-center md:scale-100 sm:scale-100 scale-100">
           <img src="/images/circle-text.svg" alt="" className="spin-circle" />
